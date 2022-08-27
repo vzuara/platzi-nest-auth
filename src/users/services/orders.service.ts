@@ -16,6 +16,12 @@ export class OrdersService {
       .populate('products');
   }
 
+  ordersByCustomer(customerId: number) {
+    return this.orderModel.find({
+      customer: customerId,
+    });
+  }
+
   async findOne(id: string) {
     return this.orderModel
       .findById(id)
